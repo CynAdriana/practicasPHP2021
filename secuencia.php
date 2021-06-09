@@ -14,7 +14,8 @@ $nombre = "Cyn";
 $agente = "Rod007";
 $titulo = "A su servicio";
 $salida = $nombre. " Nombre de agente:<br>";
-$salida .= $agente.".<br>";
+$salida .= $agente."
+.<br>";
 $salida .= $titulo;
  echo $salida;
 
