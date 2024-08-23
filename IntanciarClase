@@ -1,0 +1,34 @@
+<?php
+
+//Intanciar una clase 
+
+//Incluir la clase 
+include $_SERVER['DOCUMENT_ROOT']."/Siniestros/models/ModelsPolizas.php";  
+
+//Instanciar clase 
+$objPolInc = new modelsPolizasSiniestros();
+
+//Llama al método cargaTotalesIncisosPorPoliza y obtén los valores requeridos:
+$incisos_totales = $objPolInc->cargaTotalesIncisosPorPoliza($nopoliza, true);
+
+//Obetener los datos de superficieAsegurada/sumaAsegurada
+
+$num_inciso = $resultado->fields[0];
+
+                $tbody2.= "<tr style='font-size:13px;'>
+                          <td>".$num_inciso."</td>
+                          <td>".utf8_encode($resultado->fields[1])."</td>
+                          <td>".$incisos_totales[$num_inciso]['superficieAsegurada']."</td>
+                          <td>$".$incisos_totales[$num_inciso]['sumaAsegurada']."</td>
+                          <td>".utf8_encode($resultado->fields[4])."</td> 
+                          <td>".utf8_encode($resultado->fields[5])."</td>
+                          <td>".utf8_encode($resultado->fields[6])."</td>
+                          <td>".$resultado->fields[7]."</td>";
+                          
+                      if($Total_rows >= 1){
+                         if(getIDMetodoEva($nopoliza) != 2){
+                            $tbody2.="<td>".number_format($resultado->fields[8])."</td>";
+                            $tbody2.="<td>".number_format($resultado->fields[9],3)."</td>";
+                         }
+                      }
+?>
